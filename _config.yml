@@ -1,0 +1,23 @@
+# Site settings for the GitHub Pages / Jekyll site.
+# See https://jekyllrb.com/docs/configuration/ for all available options.
+
+title: NMJ Business
+description: >-
+  Business website for NMJ, hosted on GitHub Pages.
+url: "https://nmj12435.github.io"
+# Required by the jekyll-github-metadata plugin (pulled in by github-pages).
+repository: nmj12435/nmj.business.github.io
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Exclude files that should never be part of the built site.
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+  - .github
