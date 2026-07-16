@@ -85,3 +85,17 @@ jobs:
           status=$?
           kill "$server_pid" 2>/dev/null || true
           exit $status
+
+      - name: Lint Markdown
+        # Style/consistency checks on all Markdown sources.
+        run: npm run lint:md
+
+      - name: Spell-check content
+        # Catches typos in Markdown content (dictionary in cspell.json).
+        run: npm run lint:spell
+
+      - name: Performance & SEO budgets
+        # Lighthouse CI audits the built site against the thresholds in
+        # lighthouserc.json (SEO / accessibility / best-practices fail the
+        # build below 0.9; performance only warns, as it's machine-dependent).
+        run: npm run test:lighthouse

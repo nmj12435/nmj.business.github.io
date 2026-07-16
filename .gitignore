@@ -19,3 +19,6 @@ Gemfile.lock
 
 # Node dependencies for the CI accessibility scan (pa11y-ci).
 node_modules/
+
+# Lighthouse CI reports.
+.lighthouseci/

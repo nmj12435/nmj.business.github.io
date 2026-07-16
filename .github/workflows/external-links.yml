@@ -1,0 +1,45 @@
+name: External links
+
+# Checks that outbound links still resolve. This runs on a schedule (and on
+# demand) rather than on every push/PR, so a third-party site being down or
+# rate-limiting never blocks a merge. Internal links are validated in the main
+# CI workflow.
+
+on:
+  schedule:
+    # Mondays at 06:00 UTC.
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+concurrency:
+  group: external-links
+  cancel-in-progress: true
+
+jobs:
+  external-links:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+
+      - name: Build site
+        run: bundle exec jekyll build --trace
+        env:
+          JEKYLL_ENV: development
+
+      - name: Check external links
+        # External checking is enabled here (no --disable-external). The site's
+        # own domain is ignored: those links are validated as internal links in
+        # the main CI, and they may 404 until GitHub Pages has deployed.
+        run: |
+          bundle exec htmlproofer ./_site \
+            --allow-hash-href \
+            --ignore-empty-alt \
+            --no-enforce-https \
+            --ignore-urls "/^https?:\/\/(www\.)?nmj12435\.github\.io/"

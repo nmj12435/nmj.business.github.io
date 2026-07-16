@@ -2,11 +2,17 @@
   "name": "nmj-business-site",
   "version": "1.0.0",
   "private": true,
-  "description": "Tooling for the NMJ Business GitHub Pages site (accessibility scanning).",
+  "description": "Tooling for the NMJ Business GitHub Pages site (accessibility, performance, and content checks).",
   "scripts": {
-    "test:a11y": "pa11y-ci --sitemap http://127.0.0.1:8080/sitemap.xml --sitemap-find https://nmj12435.github.io --sitemap-replace http://127.0.0.1:8080"
+    "test:a11y": "pa11y-ci --sitemap http://127.0.0.1:8080/sitemap.xml --sitemap-find https://nmj12435.github.io --sitemap-replace http://127.0.0.1:8080",
+    "test:lighthouse": "lhci autorun",
+    "lint:md": "markdownlint-cli2",
+    "lint:spell": "cspell --no-progress \"**/*.md\""
   },
   "devDependencies": {
+    "@lhci/cli": "^0.14.0",
+    "cspell": "^8.0.0",
+    "markdownlint-cli2": "^0.14.0",
     "pa11y-ci": "^3.1.0"
   }
 }
