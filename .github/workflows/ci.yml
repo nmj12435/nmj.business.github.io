@@ -33,10 +33,13 @@ jobs:
       - name: Build site
         run: bundle exec jekyll build --trace
         env:
-          JEKYLL_ENV: production
-          # Authenticates the jekyll-github-metadata plugin so its call to the
-          # GitHub API isn't rate-limited/rejected on the runner.
-          JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Build in development mode for the link check. In production the
+          # github-pages gem rewrites url/baseurl from the Pages API, which
+          # prefixes every relative link with the site's baseurl and points
+          # html-proofer at paths outside the built _site/ tree. Development
+          # mode keeps links root-relative (and skips the API call entirely),
+          # which is what we want for validating internal links against _site/.
+          JEKYLL_ENV: development
 
       - name: Validate HTML and links
         # html-proofer checks the built _site/ for broken internal links,
