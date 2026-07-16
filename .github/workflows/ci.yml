@@ -1,0 +1,56 @@
+name: CI
+
+# Build the Jekyll site and validate the generated HTML on every push and PR.
+# This acts as the site's "test suite": if the build breaks or the output
+# contains broken links / invalid markup, the check fails before anything is
+# merged or deployed.
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+# Allow one concurrent run per ref; cancel stale runs on new pushes.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          # Installs gems from the Gemfile and caches them between runs.
+          bundler-cache: true
+
+      - name: Build site
+        run: bundle exec jekyll build --trace
+        env:
+          # Build in development mode for the link check. In production the
+          # github-pages gem rewrites url/baseurl from the Pages API, which
+          # prefixes every relative link with the site's baseurl and points
+          # html-proofer at paths outside the built _site/ tree. Development
+          # mode keeps links root-relative (and skips the API call entirely),
+          # which is what we want for validating internal links against _site/.
+          JEKYLL_ENV: development
+
+      - name: Validate HTML and links
+        # html-proofer checks the built _site/ for broken internal links,
+        # missing images, and malformed HTML.
+        #
+        # - external link checking is disabled to keep CI deterministic and
+        #   fast (external sites go down / rate-limit); flip `disable_external`
+        #   to false if you want outbound links verified too.
+        run: |
+          bundle exec htmlproofer ./_site \
+            --disable-external \
+            --allow-hash-href \
+            --ignore-empty-alt \
+            --no-enforce-https
