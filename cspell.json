@@ -1,0 +1,33 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "ignorePaths": [
+    "node_modules/**",
+    "vendor/**",
+    "_site/**",
+    "package-lock.json",
+    "Gemfile.lock",
+    ".git/**"
+  ],
+  "words": [
+    "NMJ",
+    "Jekyll",
+    "githubusercontent",
+    "gitignore",
+    "frontmatter",
+    "baseurl",
+    "htmlproofer",
+    "pa11y",
+    "WCAG",
+    "Lighthouse",
+    "lhci",
+    "lighthouserc",
+    "markdownlint",
+    "cspell",
+    "rbenv",
+    "webrick",
+    "minima",
+    "sitemap",
+    "Vitest"
+  ]
+}
