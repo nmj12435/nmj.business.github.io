@@ -1,0 +1,18 @@
+---
+# This front matter (even empty) tells Jekyll to process this file with Sass.
+# It overrides the minima theme's own assets/main.scss, so we import minima
+# first to keep all its base styles, then layer our overrides on top.
+---
+
+@import "minima";
+
+// Accessibility: darken footer text to meet WCAG 2.1 AA contrast (>= 4.5:1).
+// Minima's default $grey-color (#828282) on the white footer only reaches
+// 3.78:1, which the CI accessibility scan (pa11y-ci, WCAG2AA) flags.
+// #616161 on white is ~6.2:1.
+.footer-col-wrapper,
+.site-footer .contact-list,
+.site-footer .social-media-list,
+.site-footer .p-name {
+  color: #616161;
+}

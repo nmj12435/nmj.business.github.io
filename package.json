@@ -1,0 +1,12 @@
+{
+  "name": "nmj-business-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Tooling for the NMJ Business GitHub Pages site (accessibility scanning).",
+  "scripts": {
+    "test:a11y": "pa11y-ci --sitemap http://127.0.0.1:8080/sitemap.xml --sitemap-find https://nmj12435.github.io --sitemap-replace http://127.0.0.1:8080"
+  },
+  "devDependencies": {
+    "pa11y-ci": "^3.1.0"
+  }
+}

@@ -13,6 +13,9 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  # Generates /sitemap.xml, used by the CI accessibility scan to discover
+  # every page automatically (so new pages are covered without editing CI).
+  - jekyll-sitemap
 
 # Exclude files that should never be part of the built site.
 exclude:
@@ -21,3 +24,7 @@ exclude:
   - README.md
   - vendor
   - .github
+  - node_modules
+  - package.json
+  - package-lock.json
+  - .pa11yci
