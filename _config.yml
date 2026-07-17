@@ -1,9 +1,11 @@
 # Site settings for the GitHub Pages / Jekyll site.
 # See https://jekyllrb.com/docs/configuration/ for all available options.
 
-title: NMJ Business
+title: Crisp Cut Studio Co
 description: >-
-  Business website for NMJ, hosted on GitHub Pages.
+  Original SVG cut files for Cricut, Silhouette, and Glowforge. Instant
+  digital downloads from the Crisp Cut Studio Co Etsy shop.
+email: nmj.businessplan@gmail.com
 url: "https://nmj12435.github.io"
 # Required by the jekyll-github-metadata plugin (pulled in by github-pages).
 repository: nmj12435/nmj.business.github.io

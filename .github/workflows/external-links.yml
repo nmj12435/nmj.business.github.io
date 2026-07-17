@@ -38,12 +38,15 @@ jobs:
           JEKYLL_ENV: development
 
       - name: Check external links
-        # External checking is enabled here (no --disable-external). The site's
-        # own domain is ignored: those links are validated as internal links in
-        # the main CI, and they may 404 until GitHub Pages has deployed.
+        # External checking is enabled here (no --disable-external). Ignored:
+        #   - the site's own domain (validated as internal links in the main
+        #     CI, and may 404 until GitHub Pages has deployed);
+        #   - etsy.com — Etsy serves 403 to non-browser clients, so automated
+        #     checking would report a false failure on a link that works fine
+        #     for real visitors.
         run: |
           bundle exec htmlproofer ./_site \
             --allow-hash-href \
             --ignore-empty-alt \
             --no-enforce-https \
-            --ignore-urls "/^https?:\/\/(www\.)?nmj12435\.github\.io/"
+            --ignore-urls "/^https?:\/\/(www\.)?nmj12435\.github\.io/,/etsy\.com/"
