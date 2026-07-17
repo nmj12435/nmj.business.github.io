@@ -1,7 +1,7 @@
 # nmj.business.github.io
 
-Business website for NMJ, built with [Jekyll](https://jekyllrb.com/) and hosted
-on GitHub Pages.
+Website for **Crisp Cut Studio Co** — an Etsy shop selling original SVG cut
+files — built with [Jekyll](https://jekyllrb.com/) and hosted on GitHub Pages.
 
 ## Local development
 

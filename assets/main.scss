@@ -6,13 +6,12 @@
 
 @import "minima";
 
-// Accessibility: darken link text to meet WCAG 2.1 AA contrast (>= 4.5:1).
-// Minima's default link color (#2a7ae2) on white is only 4.15:1; #1a5fb4 is
-// ~6.3:1. Covers content links such as the email address on the homepage and
-// in the footer.
+// Brand link color (teal), also chosen to meet WCAG 2.1 AA contrast (>= 4.5:1).
+// #0e7490 on white is ~5.4:1. Covers content links such as the email address
+// on the homepage and in the footer.
 a,
 a:visited {
-  color: #1a5fb4;
+  color: #0e7490;
 }
 
 // Accessibility: darken footer text to meet WCAG 2.1 AA contrast (>= 4.5:1).
@@ -29,15 +28,19 @@ a:visited {
 // ---------------------------------------------------------------------------
 // Homepage
 // ---------------------------------------------------------------------------
-// Brand palette. $brand (#123a5e) on white is ~9.3:1, and white on $brand is
-// ~9.3:1 — both comfortably above WCAG 2.1 AA (4.5:1) for the CI a11y scan.
-$brand: #123a5e;
-$brand-dark: #0d2c47;
+// Brand palette — "Crisp Cut Studio Co" (crisp teal). $brand (#0d5b62) on
+// white is ~7.8:1 and white on $brand is ~7.8:1 — both well above WCAG 2.1 AA
+// (4.5:1) for the CI a11y scan. Placeholder brand colors: swap these three
+// values to match the exact shop palette.
+$brand: #0d5b62;
+$brand-dark: #09464c;
 $ink: #1a1a1a;
 $muted: #4a4a4a; // ~9:1 on white — safe for secondary text.
 
 .hero {
-  background: $brand;
+  // Subtle diagonal gradient for a crisp, modern feel. Both stops are dark
+  // enough to keep white hero text above AA contrast.
+  background: linear-gradient(135deg, #0d5b62 0%, #09464c 100%);
   color: #fff;
   border-radius: 8px;
   padding: 3rem 2rem;
