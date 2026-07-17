@@ -16,3 +16,152 @@
 .site-footer .p-name {
   color: #616161;
 }
+
+// ---------------------------------------------------------------------------
+// Homepage
+// ---------------------------------------------------------------------------
+// Brand palette. $brand (#123a5e) on white is ~9.3:1, and white on $brand is
+// ~9.3:1 — both comfortably above WCAG 2.1 AA (4.5:1) for the CI a11y scan.
+$brand: #123a5e;
+$brand-dark: #0d2c47;
+$ink: #1a1a1a;
+$muted: #4a4a4a; // ~9:1 on white — safe for secondary text.
+
+.hero {
+  background: $brand;
+  color: #fff;
+  border-radius: 8px;
+  padding: 3rem 2rem;
+  margin: 1.5rem 0 2.5rem;
+}
+
+.hero__title {
+  color: #fff;
+  margin: 0 0 0.75rem;
+  line-height: 1.15;
+}
+
+.hero__tagline {
+  color: #fff;
+  font-size: 1.15rem;
+  max-width: 40rem;
+  margin: 0 0 1.5rem;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0;
+}
+
+// Buttons -------------------------------------------------------------------
+.button {
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid transparent;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.button--primary {
+  background: #fff;
+  color: $brand-dark; // dark text on white — very high contrast.
+  border-color: #fff;
+
+  &:hover,
+  &:focus {
+    background: #eaeff5;
+    color: $brand-dark;
+    text-decoration: none;
+  }
+}
+
+.button--ghost {
+  background: transparent;
+  color: #fff;
+  border-color: #fff;
+
+  &:hover,
+  &:focus {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+// Visible keyboard focus for accessibility.
+.button:focus-visible {
+  outline: 3px solid #ffd34d;
+  outline-offset: 2px;
+}
+
+// Sections ------------------------------------------------------------------
+.section {
+  margin: 2.5rem 0;
+}
+
+.section__title {
+  color: $brand;
+  margin-bottom: 0.5rem;
+}
+
+.section__lead {
+  color: $muted;
+  max-width: 42rem;
+  margin-top: 0;
+}
+
+// Service cards -------------------------------------------------------------
+.cards {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+}
+
+.card {
+  border: 1px solid #d9dee5;
+  border-radius: 8px;
+  padding: 1.5rem;
+  background: #fff;
+}
+
+.card__title {
+  color: $brand;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.card__body {
+  color: $ink;
+  margin: 0;
+}
+
+// Contact -------------------------------------------------------------------
+.section--contact {
+  border-top: 1px solid #d9dee5;
+  padding-top: 2rem;
+}
+
+.section--contact .button--primary {
+  background: $brand;
+  color: #fff;
+  border-color: $brand;
+
+  &:hover,
+  &:focus {
+    background: $brand-dark;
+    color: #fff;
+  }
+}
+
+.contact__note {
+  color: $muted;
+  margin-top: 1rem;
+}
