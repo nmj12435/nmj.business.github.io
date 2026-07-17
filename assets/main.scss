@@ -6,6 +6,15 @@
 
 @import "minima";
 
+// Accessibility: darken link text to meet WCAG 2.1 AA contrast (>= 4.5:1).
+// Minima's default link color (#2a7ae2) on white is only 4.15:1; #1a5fb4 is
+// ~6.3:1. Covers content links such as the email address on the homepage and
+// in the footer.
+a,
+a:visited {
+  color: #1a5fb4;
+}
+
 // Accessibility: darken footer text to meet WCAG 2.1 AA contrast (>= 4.5:1).
 // Minima's default $grey-color (#828282) on the white footer only reaches
 // 3.78:1, which the CI accessibility scan (pa11y-ci, WCAG2AA) flags.
