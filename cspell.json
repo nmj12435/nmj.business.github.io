@@ -32,6 +32,7 @@
     "rbenv",
     "webrick",
     "minima",
+    "nokogiri",
     "sitemap",
     "Vitest"
   ]
