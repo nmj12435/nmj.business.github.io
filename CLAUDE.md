@@ -1,8 +1,15 @@
 # CLAUDE.md
 
 Project memory for Claude Code. Loaded automatically at the start of every
-session in this repo. Keep it concise and current — when something meaningful
-changes, update this file in the same PR.
+session in this repo.
+
+> **Rule (all sessions):** whenever a change alters something a future session
+> should know — key facts, conventions, build/deploy, gotchas, or TODOs —
+> update this file **in the same commit/PR** as the change. A `Stop` hook
+> (`.claude/hooks/check-claude-md.sh`, wired in `.claude/settings.json`)
+> enforces this: it reminds you before finishing if the branch changed project
+> files but not `CLAUDE.md`. Keep entries concise — this file loads every
+> session.
 
 ## What this is
 
